@@ -13,6 +13,6 @@ COPY src/ ./src/
 RUN npm ci
 RUN npm run-script build-prod
 
-FROM alpine
+FROM nginx:alpine
 
-COPY --from=builder /angular-app/dist ./app
+COPY --from=builder /angular-app/dist/tomcat-deployment-demo /usr/share/nginx/html

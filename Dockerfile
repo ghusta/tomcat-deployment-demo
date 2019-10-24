@@ -1,0 +1,18 @@
+# Multi-stage build - https://docs.docker.com/develop/develop-images/multistage-build/
+FROM node:lts AS builder
+
+WORKDIR /angular-app
+COPY package.json .
+COPY package-lock.json .
+COPY angular.json .
+COPY tsconfig.json .
+COPY tslint.json .
+COPY src/ ./src/
+
+# Instead of npm install, needs package-lock.json - https://docs.npmjs.com/cli/ci.html
+RUN npm ci
+RUN npm run-script build-prod
+
+FROM alpine
+
+COPY --from=builder /angular-app/dist ./app

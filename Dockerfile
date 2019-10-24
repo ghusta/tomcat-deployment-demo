@@ -16,3 +16,7 @@ RUN npm run-script build-prod
 FROM nginx:alpine
 
 COPY --from=builder /angular-app/dist/tomcat-deployment-demo /usr/share/nginx/html
+# Conf Nginx located at /etc/nginx/nginx.conf
+# And... include /etc/nginx/conf.d/*.conf;
+# Rewrite rules : https://www.nginx.com/blog/creating-nginx-rewrite-rules/
+COPY nginx-conf/rewrite.conf /etc/nginx/conf.d/default.conf

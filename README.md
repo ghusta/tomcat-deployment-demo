@@ -14,3 +14,4 @@ Read the post for more details -
   * [Creating NGINX Rewrite Rules](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
   * [Module ngx_http_rewrite_module](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html)
   * [Module ngx_http_core_module : try_files](https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files)
+    * [Example with JHipster](https://www.jhipster.tech/separating-front-end-and-api/#using-nginx)
